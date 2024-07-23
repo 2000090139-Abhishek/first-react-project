@@ -18,7 +18,7 @@ const Header = () => {
         </ul> */}
         {/* <ul class="nav justify-content-end"> */}
         <ul class="nav nav-tabs">
-          <li class="nav-item"> <a class="nav-link active" aria-current="page" href="/">Active</a></li>
+          <li class="nav-item"> <a class="nav-link active" aria-current="page" href="/">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="Login">Login</a></li>
           <li class="nav-item"><a class="nav-link" href="Signup">Signup</a></li>
           <li class="nav-item"><a class="nav-link" href="About">About Us</a></li>
