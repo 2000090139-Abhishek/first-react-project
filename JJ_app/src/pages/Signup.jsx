@@ -1,16 +1,78 @@
-// src/pages/Signup.jsx
-import React from 'react';
-import Layout from '../components/Layout';
+// src/pages/Registration.jsx
+import React, { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-const Signup = () => {
+const Registration = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
+
+  const handleRegistration = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('/api/register', { name, email, password });
+      if (response.data.success) {
+        navigate('/login');
+      } else {
+        setError(response.data.message);
+      }
+    } catch (err) {
+      setError('An error occurred. Please try again.');
+    }
+  };
+
   return (
-    <Layout>
-      <div style={{ textAlign: 'center', padding: '50px' }}>
-        <h1>Signup Page</h1>
-        <p>This is the signup page.</p>
+    <div className="container" style={{ marginTop: '56px', marginBottom: '60px' }}>
+      <div className="row justify-content-center">
+        <div className="col-md-8 col-lg-6">
+          <div className="card">
+            <div className="card-header">
+              <h4 className="card-title">Register</h4>
+            </div>
+            <div className="card-body">
+              <form onSubmit={handleRegistration}>
+                <div className="mb-3">
+                  <label className="form-label">Name</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="mb-3">
+                  <label className="form-label">Email</label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="mb-3">
+                  <label className="form-label">Password</label>
+                  <input
+                    type="password"
+                    className="form-control"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                  />
+                </div>
+                {error && <div className="alert alert-danger">{error}</div>}
+                <button type="submit" className="btn btn-primary">Register</button>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
-    </Layout>
+    </div>
   );
 };
 
-export default Signup;
+export default Registration;

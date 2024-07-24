@@ -6,11 +6,11 @@ import Sidebar from './Sidebar';
 
 const Layout = ({ children }) => {
   return (
-    <div className="d-flex flex-column" style={{ minHeight: '100vh' }}>
+    <div className="d-flex flex-column min-vh-100">
       <Header />
       <div className="d-flex flex-grow-1">
         <Sidebar />
-        <main className="flex-grow-1 p-3">
+        <main className="flex-grow-1 p-3" style={{ paddingTop: '56px', paddingBottom: '60px' }}>
           {children}
         </main>
       </div>
