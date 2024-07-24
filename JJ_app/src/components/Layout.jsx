@@ -1,3 +1,4 @@
+// src/components/Layout.jsx
 import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
@@ -5,33 +6,17 @@ import Sidebar from './Sidebar';
 
 const Layout = ({ children }) => {
   return (
-    <div style={styles.container}>
+    <div className="d-flex flex-column" style={{ minHeight: '100vh' }}>
       <Header />
-      <div style={styles.content}>
+      <div className="d-flex flex-grow-1">
         <Sidebar />
-        <main style={styles.main}>
+        <main className="flex-grow-1 p-3">
           {children}
         </main>
       </div>
       <Footer />
     </div>
   );
-};
-
-const styles = {
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    minHeight: '100vh',
-  },
-  content: {
-    display: 'flex',
-    flex: '1',
-  },
-  main: {
-    flex: '1',
-    padding: '20px',
-  },
 };
 
 export default Layout;
