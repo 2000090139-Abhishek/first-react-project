@@ -1,0 +1,19 @@
+/* src/styles/global.css */
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  padding-top: 70px; 
+  padding-bottom: 70px; 
+}
+
+.card {
+  margin: 0 auto; 
+  background-color: #dcd9df; 
+  box-shadow: 0 2px 5px rgba(202, 104, 104, 0.1); 
+}

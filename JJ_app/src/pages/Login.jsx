@@ -24,34 +24,45 @@ const Login = () => {
   };
 
   return (
-    <div className="container" style={{ marginTop: '56px' }}>
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
-        <div className="mb-3">
-          <label className="form-label">Email</label>
-          <input
-            type="email"
-            className="form-control"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+    <div className="container">
+      <div className="row justify-content-center">
+        <div className="col-md-8 col-lg-6">
+          <div className="card">
+            <div className="card-header">
+              <h4 className="card-title">Login</h4>
+            </div>
+            <div className="card-body">
+              <form onSubmit={handleLogin}>
+                <div className="mb-3">
+                  <label className="form-label">Email</label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="mb-3">
+                  <label className="form-label">Password</label>
+                  <input
+                    type="password"
+                    className="form-control"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                  />
+                </div>
+                {error && <div className="alert alert-danger">{error}</div>}
+                <button type="submit" className="btn btn-primary">Login</button>
+              </form>
+            </div>
+            <div className="card-footer">
+              <p>Don't have an account? <a href="/signup">Sign up</a></p>
+            </div>
+          </div>
         </div>
-        <div className="mb-3">
-          <label className="form-label">Password</label>
-          <input
-            type="password"
-            className="form-control"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        {error && <div className="alert alert-danger">{error}</div>}
-        <button type="submit" className="btn btn-primary">Login</button>
-      </form>
-
-      <p className="mt-3">Don't have an account? <a href="/signup"><bottom className="btn btn-primary">Sign up</bottom></a></p>
+      </div>
     </div>
   );
 };
