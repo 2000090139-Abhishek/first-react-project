@@ -1,19 +1,39 @@
-/* src/styles/global.css */
 
-body {
+
+html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('../src/assets/image1.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.relative-container {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
 }
 
 .container {
-  padding-top: 70px; 
-  padding-bottom: 70px; 
+  width: 100%; /* Ensure the container takes the full width */
+  max-width: 1200px; /* Optional: Add a max width to prevent the container from stretching too much */
+  padding-top: 70px;
+  padding-bottom: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .card {
-  margin: 0 auto; 
-  background-color: #dcd9df; 
-  box-shadow: 0 2px 5px rgba(202, 104, 104, 0.1); 
+  width: 100%; /* Ensure the card takes the full width of its container */
+  max-width: 400px; /* Define a max width for the card */
+  margin: 0 auto;
+  padding: 20px; /* Add padding for better spacing within the card */
+  background-color: rgba(220, 217, 223, 0.1); /* Set a semi-transparent background color */
+  border-radius: 10px; /* Optional: Add border-radius for rounded corners */
+  box-shadow: 0 2px 5px rgba(202, 104, 104, 0.1);
+  display: flex;
+  flex-direction: column; /* Ensure children are laid out in a column */
 }
